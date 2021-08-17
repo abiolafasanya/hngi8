@@ -21,5 +21,5 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 		Message: r.FormValue("message"),
 	}
 	_ = data
-	tmpl.Execute(w, struct{ success bool }{true})
+	tmpl.Execute(w, struct{ Success bool }{true})
 }
