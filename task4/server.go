@@ -14,8 +14,8 @@ func main() {
 	if PORT == ""  {
 		PORT = "3000"
 	}
-	// http.FileServer(http.Dir("public/css"))
-	// // http.Handle("/public/css", http.StripPrefix("/public/css/style.css", fs))
+	http.FileServer(http.Dir("view"))
+	http.Handle("/", http.FileServer(http.Dir("view")))
 
 	http.HandleFunc("/", controller.Contact)
 
