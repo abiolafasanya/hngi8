@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/fastbeetech/hngi8/task4/controller"
+	"github.com/hngi8/task4/controller"
 )
 
 func main() {
