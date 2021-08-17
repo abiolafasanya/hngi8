@@ -4,8 +4,8 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/hngi8/task4/models"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/hngi8/task4/models"
 )
 
 var tmpl = template.Must(template.ParseFiles("view/index.html"))

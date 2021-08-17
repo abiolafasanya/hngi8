@@ -10,7 +10,7 @@ import (
 func main() {
 
 	http.FileServer(http.Dir("public/css"))
-	// http.Handle("/css", http.StripPrefix("/public/css/", fs))
+	// http.Handle("/public/css", http.StripPrefix("/public/css/style.css", fs))
 
 	http.HandleFunc("/", controller.Contact)
 

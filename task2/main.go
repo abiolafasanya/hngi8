@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/hngi8/msg"
+
+	"github.com/hngi8/task2/msg"
 )
 
 func main() {
@@ -10,4 +11,3 @@ func main() {
 	fmt.Println("Name: Abiola")
 	msg.Greet("Abiola", msg.Welcome)
 }
-
