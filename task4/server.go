@@ -14,10 +14,11 @@ func main() {
 	if PORT == ""  {
 		PORT = "3000"
 	}
-	http.FileServer(http.Dir("view"))
-	http.Handle("/", http.FileServer(http.Dir("view")))
 
 	http.HandleFunc("/", controller.Contact)
+	fs := http.FileServer(http.Dir("view/index.html"))
+	http.Handle("/contact", http.StripPrefix("/view/index.html", fs))
+
 
 
 	fmt.Println("Server Started on port"+PORT+"....")
