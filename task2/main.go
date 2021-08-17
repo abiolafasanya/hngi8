@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/fastbeetech/hngi8/msg"
+	"github.com/hngi8/msg"
 )
 
 func main() {
