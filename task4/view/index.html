@@ -67,18 +67,21 @@
             </div>
             <div class="contact">
                 <h1>Contact Me</h1>
+                {{if .success}}
+                    <h3>Thanks we received your message</h3>
+                {{else}}
                 <form action="" method="post">
                     <div class="form-group">
-                        <label for="firstname">Firstname</label>
-                        <input type="text" class="firstname">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastname">Lastname</label>
-                        <input type="text" class="lastname">
+                        <label for="name">Name</label>
+                        <input type="text" class="name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" class="subject">
                     </div>
                     <div class="form-msg">
                         <label for="message">Message</label>
@@ -88,6 +91,7 @@
                     </div>
                     <button class="btn">Submit</button>
                 </form>
+                {{end}}
             </div>
         </section>
         <footer></footer>
