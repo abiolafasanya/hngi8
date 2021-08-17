@@ -4,7 +4,7 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/fastbeetech/hngi8/task4/models"
+	"github.com/hngi8/task4/models"
 	_ "github.com/go-sql-driver/mysql"
 )
 
