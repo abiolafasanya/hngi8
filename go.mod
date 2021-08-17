@@ -1,4 +1,4 @@
-module github.com/fastbeetech/hngi8
+module github.com/hngi8
 
 go 1.16
 
