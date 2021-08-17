@@ -9,10 +9,11 @@ import (
 
 func main() {
 
-	http.HandleFunc("/contact", controller.Contact)
+	http.FileServer(http.Dir("public/css"))
+	// http.Handle("/css", http.StripPrefix("/public/css/", fs))
 
-	// fs := http.FileServer(http.Dir("view/index.html"))
-	// http.Handle("/home", http.StripPrefix("/view/index.html", fs))
+	http.HandleFunc("/", controller.Contact)
+
 
 	fmt.Println("Server Started....")
 	http.ListenAndServe(":3000", nil)

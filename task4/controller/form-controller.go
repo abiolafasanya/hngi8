@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"example.com/hngi8/task4/models"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var tmpl = template.Must(template.ParseFiles("view/index.html"))
