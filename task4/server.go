@@ -11,16 +11,15 @@ import (
 func main() {
 
 	PORT := os.Getenv("PORT")
-	if PORT == ""  {
+	if PORT == "" {
 		PORT = "3000"
 	}
 
 	http.HandleFunc("/", controller.Contact)
 	// fs := http.FileServer(http.Dir("view/index.html"))
+	
 	http.Handle("/contact", http.FileServer(http.Dir("view/index.html")))
 
-
-
-	fmt.Println("Server Started on port"+PORT+"....")
+	fmt.Println("Server Started on port" + PORT + "....")
 	http.ListenAndServe(":"+PORT, nil)
 }
