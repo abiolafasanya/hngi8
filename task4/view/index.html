@@ -174,28 +174,7 @@ nav{
                     <div class="success">
                         <h3>Thanks we received your message</h3>
                     </div>
-                        <form action="" method="post">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="name">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="email">
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" class="subject">
-                            </div>
-                            <div class="form-msg">
-                                <label for="message">Message</label>
-                                <textarea name="message" id="" cols="30" rows="10">
-                                    -- Message here --
-                                </textarea>
-                            </div>
-                            <button class="btn">Submit</button>
-                        </form>
-                {{else}}
+                {{end}}
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -217,7 +196,6 @@ nav{
                     </div>
                     <button class="btn">Submit</button>
                 </form>
-                {{end}}
             </div>
         </section>
         <footer>
