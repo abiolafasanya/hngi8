@@ -16,8 +16,8 @@ func main() {
 	}
 
 	http.HandleFunc("/", controller.Contact)
-	fs := http.FileServer(http.Dir("view/index.html"))
-	http.Handle("/contact", http.StripPrefix("/view/index.html", fs))
+	// fs := http.FileServer(http.Dir("view/index.html"))
+	// http.Handle("/contact", http.StripPrefix("/view/index.html", fs))
 
 
 
