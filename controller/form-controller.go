@@ -3,8 +3,11 @@ package controller
 import (
 	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/hngi8/config"
 	"github.com/hngi8/models"
 )
 
@@ -29,13 +32,35 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		t.Execute(w, profile)
 		return
 	}
+
 	data := models.Contact{
 		Name:    r.FormValue("name"),
 		Email:   r.FormValue("email"),
 		Subject: r.FormValue("subject"),
 		Message: r.FormValue("message"),
 	}
-	_, _ = data, profile
+	_, _, _ = data, profile, tmpl
+
+	db := config.DbConn()
+
+	// insert message database contact
+	req := models.Contact{
+		Name: r.FormValue("name"),
+		Email: r.FormValue("email"),
+		Subject: r.FormValue("subject"),
+		Message: r.FormValue("message"),
+	}
+
+	insert := "INSERT INTO messages (`name`, `email`, `subject`, `message`) VALUES (?,?,?,?)"
+
+	q, err := db.Query(insert, req.Name, req.Email, req.Subject, req.Message)
+	if err != nil {
+		panic(err.Error())
+	}
+	log.Printf("Insert Name: %s | Email: %s | Subject: %s | Message: %s", req.Name, req.Email, req.Subject, req.Message)
+
+	defer q.Close() 
+
 
 	msg := struct {
 		Success bool
@@ -47,6 +72,8 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(msg.Profile, msg.Success)
 	fmt.Println("Data Inserted Successfullly")
-	tmpl.ExecuteTemplate(w, "index.html", struct{ Success bool }{true})
+	// tmpl.ExecuteTemplate(w, "index.html", msg)
 	// tmpl.Execute(w, struct{ Success bool }{true})
+
+	http.Redirect(w, r, "/", http.StatusSeeOther)
 }

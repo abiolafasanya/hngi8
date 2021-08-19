@@ -44,19 +44,19 @@
                     <h1>Profile Details</h1>
                     <div class="group-details">
                         <h3>Name:</h3>
-                        <p>Abiola Fasanya</p>
+                        <p>{{.Name}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Email:</h3>
-                        <p>harbiola78@gmail.com</p>
+                        <p>{{.Email}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Phone:</h3>
-                        <p>+2348102307473</p>
+                        <p>+{{.Phone}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Location:</h3>
-                        <p>Lagos, Nigeria</p>
+                        <p>{{.Location}}</p>
                     </div>
                 </div>
 
@@ -65,13 +65,13 @@
                     <div class="info-skills">
                         <h3>Golang</h3>
                         <h3>PHP</h3>
+                        <h3>JavaScript</h3>
+                        <h3>Laravel</h3>
                         <h3>Git</h3>
                         <h3>HTML5</h3>
                         <h3>CSS</h3>
                         <h3>TailwindCss:</h3>
                         <h3>Bootstrap</h3>
-                        <h3>JavaScript</h3>
-                        <h3>Laravel</h3>
                         <h3>Cloudinary</h3>
                     </div>
                 
@@ -85,15 +85,15 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="name">
+                        <input type="text" name="name">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="email">
+                        <input type="email" name="email">
                     </div>
                     <div class="form-group">
                         <label for="subject">Subject</label>
-                        <input type="text" class="subject">
+                        <input type="text" name="subject">
                     </div>
                     <div class="form-msg">
                         <label for="message">Message</label>
