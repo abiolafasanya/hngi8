@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/hngi8/task4/controller"
+	"github.com/hngi8/controller"
 )
 
 func main() {
@@ -14,8 +14,6 @@ func main() {
 	if PORT == "" {
 		PORT = "3000"
 	}
-
-	http.HandleFunc("/contact", controller.Contact)
 
 	http.HandleFunc("/", controller.Index)
 
