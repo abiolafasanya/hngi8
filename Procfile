@@ -1,1 +1,1 @@
-web: task4
+web: bin/task4
