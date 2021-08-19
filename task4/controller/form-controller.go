@@ -96,5 +96,6 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(msg.Profile, msg.Success)
 	fmt.Println("Data Inserted Successfullly")
-	tmpl.Execute(w, struct{ Success bool }{true})
+	tmpl.ExecuteTemplate(w, "contact.html", struct{ Success bool }{true})
+	// tmpl.Execute(w, struct{ Success bool }{true})
 }
