@@ -20,9 +20,9 @@ func init() {
 
 func Contact(w http.ResponseWriter, r *http.Request) {
 	profile := models.Profile{
-		Name: "Abiola Fasanya",
-		Email: "harbiola78@gmail.com",
-		Phone: "2348102307473",
+		Name:     "Abiola Fasanya",
+		Email:    "harbiola78@gmail.com",
+		Phone:    "2348102307473",
 		Location: "Lagos, Nigeria",
 	}
 	// db := config.DbConn()
@@ -39,7 +39,7 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 		Message: r.FormValue("message"),
 	}
 	_ = data
-	_= profile
+	_ = profile
 
 	//insert message database contact
 	// newContact := new(models.Contact)
@@ -53,18 +53,23 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 	// 	panic(err.Error())
 	// }
 	// defer insert.Close()
-	msg := struct{ Success bool }{true}
-	d, p := data, profile
-	s := []interface{}{d, p, msg}
+	msg := struct {
+		Success bool
+		Profile models.Profile
+	}{
+		Success: true,
+		Profile: profile,
+	}
+	
 	fmt.Println("Data Inserted Successfullly")
-	tmpl.Execute(w, s)
+	tmpl.Execute(w, msg)
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	profile := models.Profile{
-		Name: "Abiola Fasanya",
-		Email: "harbiola78@gmail.com",
-		Phone: "2348102307473",
+		Name:     "Abiola Fasanya",
+		Email:    "harbiola78@gmail.com",
+		Phone:    "2348102307473",
 		Location: "Lagos, Nigeria",
 	}
 	template, _ := template.ParseFiles("index.html")
