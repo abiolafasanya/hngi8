@@ -5,7 +5,7 @@ import (
 	"html/template"
 	"net/http"
 
-	_ "github.com/go-sql-driver/mysql"
+	// _ "github.com/go-sql-driver/mysql"
 	// "github.com/hngi8/task4/config"
 	"github.com/hngi8/task4/models"
 )
