@@ -3,83 +3,109 @@ body {
     padding: 0;
     background-color: rgb(216, 221, 221);
     font-family: sans-serif;
+    box-sizing: border-box;
+    }
+    
+    nav{
     width: 100%;
-}
-
-nav{
-    width: inherit;
     padding: 0;
     margin: 0;
-}
-.nav-links {
+    }
+    .nav-links {
     display: flex;
     font-size: 22px;
     justify-content: center;
     align-items: center;
     background-color: azure;
-    width: inherit;
-}
-.nav-links a {
+    width: 100%;
+    }
+    .nav-links a {
     display: block;
     padding: 5px;
     margin: 12px;
     text-decoration: none;
     color: rgb(36, 48, 48);
-}
-
-.hero{
+    }
+    
+    .hero{
     width: 750px;
     margin: auto;
-}
-.hero .welcome {
+    }
+    .hero .welcome {
     text-align: center;
-}
-
-.info {
+    }
+    
+    .info {
     width: 750px;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-.info .group-details{
+    }
+    .info .group-details{
     display:  flex;
     align-items: center;
     justify-content: space-between;
-}
-.info-skills {
+    }
+    .info-skills {
     width: 750px;
     margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-}
-
-.contact{
+    }
+    
+    .contact{
     width: 750px;
     margin: auto;
-}
-
-.contact form label {
+    }
+    
+    .contact form label {
     display: block;
-}
-
-.contact form input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-}
-
-.contact form textarea {
+    }
+    
+    .contact form input {
     display: block;
     width: 100%;
     padding: 10px;
-}
-.btn {
+    }
+    
+    .contact form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    }
+    
+    .btn {
     color: #fff;
     background-color: rgb(43, 46, 46);
     padding: 8px 30px;
     margin: 5px 0;
     font-size: 16px;
     border-radius: 4px;
+    }
     
-}
+    .success {
+    background-color: rgb(123, 228, 123);
+    padding: 10px 20px;
+    border-radius: 3px;
+    text-align: center;
+    }
+    .error {
+    background-color: rgb(223, 60, 60);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    text-align: center;
+    }
+
+    .logos {
+    margin: 20px 0;
+    width: 750px;
+    margin: auto;
+    display:grid;
+    grid-template-columns: repeat(3, 300px);
+    }
+
+    .logos a img {
+    width: 200px;
+    }    
