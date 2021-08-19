@@ -72,12 +72,10 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Phone:    "2348102307473",
 		Location: "Lagos, Nigeria",
 	}
-	// template, _ := template.ParseFiles("contact.html")
-	// template.Execute(w, profile)
 
 	if r.Method != http.MethodPost {
 		t, _ := template.ParseFiles("contact.html")
-		t.Execute(w, nil)
+		t.Execute(w, profile)
 		return
 	}
 	data := models.Contact{
