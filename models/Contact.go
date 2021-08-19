@@ -6,3 +6,7 @@ type Contact struct {
 	Email   string
 	Message string
 }
+
+type Info struct {
+    Message string `json:"message"`
+}

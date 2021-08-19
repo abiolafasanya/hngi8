@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"encoding/json"
 	"fmt"
 	"html/template"
 	"log"
@@ -45,8 +46,8 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 	// insert message database contact
 	req := models.Contact{
-		Name: r.FormValue("name"),
-		Email: r.FormValue("email"),
+		Name:    r.FormValue("name"),
+		Email:   r.FormValue("email"),
 		Subject: r.FormValue("subject"),
 		Message: r.FormValue("message"),
 	}
@@ -59,8 +60,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Printf("Insert Name: %s | Email: %s | Subject: %s | Message: %s", req.Name, req.Email, req.Subject, req.Message)
 
-	defer q.Close() 
-
+	defer q.Close()
 
 	msg := struct {
 		Success bool
@@ -69,6 +69,8 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Profile: profile,
 	}
+	info := map[string]string{"message": req.Name + " Thank You for Your Message it has been received successfully!"}
+	json.NewEncoder(w).Encode(info)
 
 	fmt.Println(msg.Profile, msg.Success)
 	fmt.Println("Data Inserted Successfullly")
