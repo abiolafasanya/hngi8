@@ -6,17 +6,30 @@ import (
 	"net/http"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/hngi8/task4/config"
+	// "github.com/hngi8/task4/config"
 	"github.com/hngi8/task4/models"
 )
 
-var tmpl = template.Must(template.ParseFiles("view/index.html"))
+var tmpl *template.Template
+
+func init() {
+	tmpl = template.Must(template.ParseGlob("*.html"))
+}
+
+// var tmpl = template.Must(template.ParseFiles("view/index.html"))
 
 func Contact(w http.ResponseWriter, r *http.Request) {
-	db := config.DbConn()
+	profile := models.Profile{
+		Name: "Abiola Fasanya",
+		Email: "harbiola78@gmail.com",
+		Phone: "2348102307473",
+		Location: "Lagos, Nigeria",
+	}
+	// db := config.DbConn()
 
 	if r.Method != http.MethodPost {
-		tmpl.Execute(w, nil)
+		t, _ := template.ParseFiles("contact.html")
+		t.Execute(w, nil)
 		return
 	}
 	data := models.Contact{
@@ -26,19 +39,34 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 		Message: r.FormValue("message"),
 	}
 	_ = data
+	_= profile
 
 	//insert message database contact
-	newContact := new(models.Contact)
-	newContact.Name = r.FormValue("name")
-	newContact.Email = r.FormValue("email")
-	newContact.Subject = r.FormValue("subject")
-	newContact.Message = r.FormValue("message")
+	// newContact := new(models.Contact)
+	// newContact.Name = r.FormValue("name")
+	// newContact.Email = r.FormValue("email")
+	// newContact.Subject = r.FormValue("subject")
+	// newContact.Message = r.FormValue("message")
 
-	insert, err := db.Query("INSERT INTO users (name, email, subject, message) VALUES (newContact.Name, newContact.Email, newContact.Subject, newContact.Message)")
-	if err != nil {
-		panic(err.Error())
-	}
-	defer insert.Close()
+	// insert, err := db.Query("INSERT INTO users (name, email, subject, message) VALUES (newContact.Name, newContact.Email, newContact.Subject, newContact.Message)")
+	// if err != nil {
+	// 	panic(err.Error())
+	// }
+	// defer insert.Close()
+	msg := struct{ Success bool }{true}
+	d, p := data, profile
+	s := []interface{}{d, p, msg}
 	fmt.Println("Data Inserted Successfullly")
-	tmpl.Execute(w, struct{ Success bool }{true})
+	tmpl.Execute(w, s)
+}
+
+func Index(w http.ResponseWriter, r *http.Request) {
+	profile := models.Profile{
+		Name: "Abiola Fasanya",
+		Email: "harbiola78@gmail.com",
+		Phone: "2348102307473",
+		Location: "Lagos, Nigeria",
+	}
+	template, _ := template.ParseFiles("index.html")
+	template.Execute(w, profile)
 }

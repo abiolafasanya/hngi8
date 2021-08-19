@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -139,15 +139,15 @@ nav{
                     </div>
                     <div class="group-details">
                         <h3>Email:</h3>
-                        <p>harbiola78@gmail.com</p>
+                        <p>{{.Email}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Phone:</h3>
-                        <p>+2348102307473</p>
+                        <p>+{{.Phone}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Location:</h3>
-                        <p>Lagos, Nigeria</p>
+                        <p>{{.Location}}</p>
                     </div>
                 </div>
 
@@ -171,9 +171,31 @@ nav{
             <div class="contact">
                 <h1>Contact Me</h1>
                 {{if.Success}}
-                <div class="success">
-                    <h3>Thanks we received your message</h3>
-                </div>
+                    <div class="success">
+                        <h3>Thanks we received your message</h3>
+                    </div>
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" class="subject">
+                        </div>
+                        <div class="form-msg">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="" cols="30" rows="10">
+                                -- Message here --
+                            </textarea>
+                        </div>
+                        <button class="btn">Submit</button>
+                    </form>
+                {{else}}
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="name">Name</label>
@@ -195,30 +217,9 @@ nav{
                     </div>
                     <button class="btn">Submit</button>
                 </form>
-                {{end}}
-                    <form action="" method="post">
-                        <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" class="subject">
-                    </div>
-                    <div class="form-msg">
-                        <label for="message">Message</label>
-                        <textarea name="message" id="" cols="30" rows="10">
-                            -- Message here --
-                        </textarea>
-                    </div>
-                    <button class="btn">Submit</button>
-                </form>
             </div>
         </section>
+        {{end}}
         <footer>
             <div class="logos">
                 <a href="https://hng.tech/">
@@ -238,4 +239,4 @@ nav{
         </footer>
     </div>
 </body>
-</html> -->
+</html>

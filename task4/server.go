@@ -15,10 +15,11 @@ func main() {
 		PORT = "3000"
 	}
 
+	http.HandleFunc("/contact", controller.Index)
+
 	http.HandleFunc("/", controller.Contact)
-	// fs := http.FileServer(http.Dir("view/index.html"))
-	
-	http.Handle("/contact", http.FileServer(http.Dir("view/index.html")))
+
+	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 
 	fmt.Println("Server Started on port" + PORT + "....")
 	http.ListenAndServe(":"+PORT, nil)

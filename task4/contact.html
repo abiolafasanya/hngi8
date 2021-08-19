@@ -1,113 +1,10 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(216, 221, 221);
-    font-family: sans-serif;
-    width: 100%;
-}
-
-nav{
-    width: inherit;
-    padding: 0;
-    margin: 0;
-}
-.nav-links {
-    display: flex;
-    font-size: 22px;
-    justify-content: center;
-    align-items: center;
-    background-color: azure;
-    width: inherit;
-}
-.nav-links a {
-    display: block;
-    padding: 5px;
-    margin: 12px;
-    text-decoration: none;
-    color: rgb(36, 48, 48);
-}
-
-.hero{
-    width: 750px;
-    margin: auto;
-}
-.hero .welcome {
-    text-align: center;
-}
-
-.info {
-    width: 750px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.info .group-details{
-    display:  flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.info-skills {
-    width: 750px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.contact{
-    width: 750px;
-    margin: auto;
-}
-
-.contact form label {
-    display: block;
-}
-
-.contact form input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-}
-
-.contact form textarea {
-    display: block;
-    width: 100%;
-    padding: 10px;
-}
-.btn {
-    color: #fff;
-    background-color: rgb(43, 46, 46);
-    padding: 8px 30px;
-    margin: 5px 0;
-    font-size: 16px;
-    border-radius: 4px;
-    
-}
-.success {
-    background-color: rgb(123, 228, 123);
-    padding: 10px 20px;
-    border-radius: 3px;
-    text-align: center;
-}
-.logos {
-    margin: 20px 0;
-    width: 750px;
-    margin: auto;
-    display:grid;
-    grid-template-columns: repeat(3, 300px);
-}
-.logos a img {
-    width: 200px;
-}
-    </style>
+    <link rel="stylesheet" href="public/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -139,15 +36,15 @@ nav{
                     </div>
                     <div class="group-details">
                         <h3>Email:</h3>
-                        <p>harbiola78@gmail.com</p>
+                        <p>{{.Email}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Phone:</h3>
-                        <p>+2348102307473</p>
+                        <p>+{{.Phone}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Location:</h3>
-                        <p>Lagos, Nigeria</p>
+                        <p>{{.Location}}</p>
                     </div>
                 </div>
 
@@ -171,33 +68,12 @@ nav{
             <div class="contact">
                 <h1>Contact Me</h1>
                 {{if.Success}}
-                <div class="success">
-                    <h3>Thanks we received your message</h3>
-                </div>
+                    <div class="success">
+                        <h3>Thanks we received your message</h3>
+                    </div>
+                {{end}}
                 <form action="" method="post">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" class="subject">
-                    </div>
-                    <div class="form-msg">
-                        <label for="message">Message</label>
-                        <textarea name="message" id="" cols="30" rows="10">
-                            -- Message here --
-                        </textarea>
-                    </div>
-                    <button class="btn">Submit</button>
-                </form>
-                {{end}}
-                    <form action="" method="post">
-                        <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="name">
                     </div>
@@ -238,4 +114,4 @@ nav{
         </footer>
     </div>
 </body>
-</html> -->
+</html>
