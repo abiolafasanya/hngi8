@@ -1,1 +1,1 @@
-web: task4/view
+web: task4
