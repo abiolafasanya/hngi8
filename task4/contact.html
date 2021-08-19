@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/style.css">
-    <title>Document</title>
+    <title>Resume Page</title>
 </head>
 <body>
     <div>
@@ -32,19 +32,19 @@
                     <h1>Profile Details</h1>
                     <div class="group-details">
                         <h3>Name:</h3>
-                        <p>{{.Name}}</p>
+                        <p>{{.Name}}</p> || 'Abiola Fasanya'}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Email:</h3>
-                        <p>{{.Email}}</p>
+                        <p>{{.Email}}</p> || 'abiola@gmail.com'}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Phone:</h3>
-                        <p>+{{.Phone}}</p>
+                        <p>+{{.Phone || '23481023074173'}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Location:</h3>
-                        <p>{{.Location}}</p>
+                        <p>{{<div class="Location"></div> || 'New York'}}</p>
                     </div>
                 </div>
 

@@ -15,9 +15,9 @@ func main() {
 		PORT = "3000"
 	}
 
-	http.HandleFunc("/contact", controller.Index)
+	http.HandleFunc("/contact", controller.Contact)
 
-	http.HandleFunc("/", controller.Contact)
+	http.HandleFunc("/", controller.Index)
 
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 

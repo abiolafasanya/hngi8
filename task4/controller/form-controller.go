@@ -60,7 +60,7 @@ func Contact(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Profile: profile,
 	}
-	
+
 	fmt.Println("Data Inserted Successfullly")
 	tmpl.Execute(w, msg)
 }
@@ -72,6 +72,31 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Phone:    "2348102307473",
 		Location: "Lagos, Nigeria",
 	}
-	template, _ := template.ParseFiles("index.html")
-	template.Execute(w, profile)
+	// template, _ := template.ParseFiles("contact.html")
+	// template.Execute(w, profile)
+
+	if r.Method != http.MethodPost {
+		t, _ := template.ParseFiles("contact.html")
+		t.Execute(w, nil)
+		return
+	}
+	data := models.Contact{
+		Name:    r.FormValue("name"),
+		Email:   r.FormValue("email"),
+		Subject: r.FormValue("subject"),
+		Message: r.FormValue("message"),
+	}
+	_, _ = data, profile
+
+	msg := struct {
+		Success bool
+		Profile models.Profile
+	}{
+		Success: true,
+		Profile: profile,
+	}
+
+	fmt.Println(msg.Profile, msg.Success)
+	fmt.Println("Data Inserted Successfullly")
+	tmpl.Execute(w, struct{ Success bool }{true})
 }
