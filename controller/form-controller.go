@@ -31,7 +31,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		t, _ := template.ParseFiles("index.html")
 		t.Execute(w, profile)
-		return
+	
 	}
 
 	data := models.Contact{
