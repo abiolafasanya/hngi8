@@ -27,21 +27,40 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Location: "Lagos, Nigeria",
 	}
 
-	if r.Method == "GET" {
-		t, _ := template.ParseFiles("index.html")
-		t.Execute(w, profile)
-		return
-	}
-
-	db := config.DbConn()
-
-	// insert message database contact
 	req := models.Contact{
 		Name:    r.FormValue("name"),
 		Email:   r.FormValue("email"),
 		Subject: r.FormValue("subject"),
 		Message: r.FormValue("message"),
 	}
+
+	out := struct{
+		 Success bool
+		 Profile models.Profile
+		 Message map[string]string 
+		 }{false, profile, nil}
+
+	if r.Method == "GET" {
+		t, _ := template.ParseFiles("index.html")
+		t.Execute(w, out)
+		return
+	}
+
+	info := models.Info{Message: req.Name + " Thank You for Your Message it has been received successfully!"}
+
+	msg := struct {
+		Success bool
+		Profile models.Profile
+		Message models.Info
+	}{
+		Success: true,
+		Profile: profile,
+		Message: info,
+	}
+
+	db := config.DbConn()
+
+	// insert message database contact
 
 	insert := "INSERT INTO messages (`name`, `email`, `subject`, `message`) VALUES (?,?,?,?)"
 
@@ -50,24 +69,14 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err, "An error occured!")
 		// panic(err.Error())
 	}
+	fmt.Println("Data Inserted Successfullly")
 	defer q.Close()
 
+	
 
-
-	msg := struct {
-		Success bool
-		Profile models.Profile
-	}{
-		Success: true,
-		Profile: profile,
-	}
-	// info := map[string]string{"message": req.Name + " Thank You for Your Message it has been received successfully!"}
-	// json.NewEncoder(w).Encode(info)
 
 	fmt.Println(msg.Profile, msg.Success)
-	fmt.Println("Data Inserted Successfullly")
-	// tmpl.ExecuteTemplate(w, "index.html", msg)
-	tmpl.Execute(w, struct{ Success string }{req.Name+ ", Thanks for your time, your message has been received"})
+	tmpl.Execute(w, msg)
 
 	// http.Redirect(w, r, "/", http.StatusSeeOther)
 }

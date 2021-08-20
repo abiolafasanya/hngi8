@@ -44,19 +44,19 @@
                     <h1>Profile Details</h1>
                     <div class="group-details">
                         <h3>Name:</h3>
-                        <p>{{.Name}}</p>
+                        <p>{{.Profile.Name}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Email:</h3>
-                        <p>{{.Email}}</p>
+                        <p>{{.Profile.Email}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Phone:</h3>
-                        <p>+{{.Phone}}</p>
+                        <p>+{{.Profile.Phone}}</p>
                     </div>
                     <div class="group-details">
                         <h3>Location:</h3>
-                        <p>{{.Location}}</p>
+                        <p>{{.Profile.Location}}</p>
                     </div>
                 </div>
 
@@ -79,8 +79,11 @@
             </div>
             <div class="contact" id="contact">
                 <h1>Contact Me</h1>
+                {{if.Success}}
                     <div class="success">
+                        {{.Message.Message}}
                     </div>
+                {{end}}
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="name">Name</label>
