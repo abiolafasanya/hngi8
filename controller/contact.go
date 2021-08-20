@@ -102,7 +102,7 @@ func addContact(a, b, c, d string) {
 		INSERT INTO contact (name, email, subject, message)
 		VALUES ($1, $2, $3, $4)`
 
-	_, err := db.Exec(sqlStatement, 30, a, b, c, d)
+	_, err := db.Exec(sqlStatement, a, b, c, d)
 	if err != nil {
 		panic(err)
 	}
