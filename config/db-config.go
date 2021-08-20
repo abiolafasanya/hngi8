@@ -3,6 +3,7 @@ package config
 import (
 	"database/sql"
 	"os"
+        _ "github.com/lib/pq"
 )
 
 func DbConn() (db *sql.DB) {
