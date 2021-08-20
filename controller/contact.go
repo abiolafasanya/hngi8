@@ -107,5 +107,4 @@ func addContact(a, b, c, d string) {
 		panic(err)
 	}
 	fmt.Println("Data Inserted Successfullly")
-	defer db.Close()
 }
