@@ -22,8 +22,12 @@ func DbConn() (db *sql.DB) {
 	if dbName == "" {
 		dbName = "contact"
 	}
+	dbUrl := os.Getenv("DATABASE_URL")
+	if dbUrl == "" {
+		dbUrl = dbUser+":"+dbPass+"@/"+dbName
+	}
 
-	db, err := sql.Open(dbDriver, dbUser+":"+dbPass+"@/"+dbName)
+	db, err := sql.Open(dbDriver, dbUrl)
 	if err != nil {
 		panic(err.Error())
 	}
