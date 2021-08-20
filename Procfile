@@ -1,1 +1,1 @@
-web: hngi8
+web: bin/hngi8
