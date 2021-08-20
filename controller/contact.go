@@ -13,11 +13,11 @@ import (
 	_ "github.com/lib/pq"
 )
 
-var tmpl *template.Template
+// var tmpl *template.Template
 
-func init() {
-	tmpl = template.Must(template.ParseGlob("*.html"))
-}
+// func init() {
+// 	tmpl = template.Must(template.ParseGlob("*.html"))
+// }
 
 // var tmpl = template.Must(template.ParseFiles("view/index.html"))
 
@@ -35,14 +35,6 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 	}
 
-	data := models.Contact{
-		Name:    r.FormValue("name"),
-		Email:   r.FormValue("email"),
-		Subject: r.FormValue("subject"),
-		Message: r.FormValue("message"),
-	}
-	_, _, _ = data, profile, tmpl
-
 	db := config.DbConn()
 
 	// insert message database contact
@@ -57,11 +49,12 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 	q, err := db.Query(insert, req.Name, req.Email, req.Subject, req.Message)
 	if err != nil {
+		log.Fatal(err)
 		panic(err.Error())
 	}
-	log.Printf("Insert Name: %s | Email: %s | Subject: %s | Message: %s", req.Name, req.Email, req.Subject, req.Message)
-
 	defer q.Close()
+
+
 
 	msg := struct {
 		Success bool
