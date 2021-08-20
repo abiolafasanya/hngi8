@@ -12,7 +12,7 @@ func main() {
 
 	PORT := os.Getenv("PORT")
 	if PORT == "" {
-		PORT = "3000"
+		PORT = "4000"
 	}
 
 	http.HandleFunc("/", controller.Index)

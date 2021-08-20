@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"encoding/json"
+	// "encoding/json"
 	"fmt"
 	"html/template"
 	"log"
@@ -13,13 +13,11 @@ import (
 	_ "github.com/lib/pq"
 )
 
-// var tmpl *template.Template
+var tmpl *template.Template
 
-// func init() {
-// 	tmpl = template.Must(template.ParseGlob("*.html"))
-// }
-
-// var tmpl = template.Must(template.ParseFiles("view/index.html"))
+func init() {
+	tmpl = template.Must(template.ParseGlob("*.html"))
+}
 
 func Index(w http.ResponseWriter, r *http.Request) {
 	profile := models.Profile{
@@ -29,10 +27,10 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Location: "Lagos, Nigeria",
 	}
 
-	if r.Method != http.MethodPost {
+	if r.Method == "GET" {
 		t, _ := template.ParseFiles("index.html")
 		t.Execute(w, profile)
-
+		return
 	}
 
 	db := config.DbConn()
@@ -49,8 +47,8 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 	q, err := db.Query(insert, req.Name, req.Email, req.Subject, req.Message)
 	if err != nil {
-		log.Fatal(err)
-		panic(err.Error())
+		log.Fatal(err, "An error occured!")
+		// panic(err.Error())
 	}
 	defer q.Close()
 
@@ -63,15 +61,15 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Success: true,
 		Profile: profile,
 	}
-	info := map[string]string{"message": req.Name + " Thank You for Your Message it has been received successfully!"}
-	json.NewEncoder(w).Encode(info)
+	// info := map[string]string{"message": req.Name + " Thank You for Your Message it has been received successfully!"}
+	// json.NewEncoder(w).Encode(info)
 
 	fmt.Println(msg.Profile, msg.Success)
 	fmt.Println("Data Inserted Successfullly")
 	// tmpl.ExecuteTemplate(w, "index.html", msg)
-	// tmpl.Execute(w, struct{ Success bool }{true})
+	tmpl.Execute(w, struct{ Success string }{req.Name+ ", Thanks for your time, your message has been received"})
 
-	http.Redirect(w, r, "/", http.StatusSeeOther)
+	// http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
 func ContactTable(w http.ResponseWriter, r *http.Request) {
