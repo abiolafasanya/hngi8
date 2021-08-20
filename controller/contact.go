@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/hngi8/config"
@@ -34,11 +35,11 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Message: r.FormValue("message"),
 	}
 
-	out := struct{
-		 Success bool
-		 Profile models.Profile
-		 Message map[string]string 
-		 }{false, profile, nil}
+	out := struct {
+		Success bool
+		Profile models.Profile
+		Message map[string]string
+	}{false, profile, nil}
 
 	if r.Method == "GET" {
 		t, _ := template.ParseFiles("index.html")
@@ -58,22 +59,23 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Message: info,
 	}
 
-	db := config.DbConn()
-
-	// insert message database contact
-
-	insert := "INSERT INTO messages (`name`, `email`, `subject`, `message`) VALUES (?,?,?,?)"
-
-	q, err := db.Query(insert, req.Name, req.Email, req.Subject, req.Message)
-	if err != nil {
-		log.Fatal(err, "An error occured!")
-		// panic(err.Error())
-	}
-	fmt.Println("Data Inserted Successfullly")
-	defer q.Close()
-
 	
 
+	env := os.Getenv("ENVIRONMENT")
+	if env == "production" {
+		addContact(req.Name, req.Email, req.Subject, req.Message)
+	}else{
+		// insert message database contact local environment
+		db := config.DbConn()
+		insert := "INSERT INTO messages (`name`, `email`, `subject`, `message`) VALUES (?,?,?,?)"
+
+		q, err := db.Query(insert, req.Name, req.Email, req.Subject, req.Message)
+		if err != nil {
+			log.Fatal(err, "An error occured!")
+		}
+		fmt.Println("Data Inserted Successfullly")
+		defer q.Close()
+	}
 
 	fmt.Println(msg.Profile, msg.Success)
 	tmpl.Execute(w, msg)
@@ -92,4 +94,18 @@ func ContactTable(w http.ResponseWriter, r *http.Request) {
 	_ = d
 	fmt.Println("Table created successfully")
 	http.Redirect(w, r, "/", http.StatusSeeOther)
+}
+
+func addContact(a, b, c, d string) {
+	db := config.DbConn()
+	sqlStatement := `
+		INSERT INTO contact (name, email, subject, message)
+		VALUES ($1, $2, $3, $4)`
+
+	_, err := db.Exec(sqlStatement, 30, a, b, c, d)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Data Inserted Successfullly")
+	defer db.Close()
 }
