@@ -85,7 +85,10 @@ func Index(w http.ResponseWriter, r *http.Request) {
 
 func ContactTable(w http.ResponseWriter, r *http.Request) {
 	db := config.DbConn()
-	table := "CREATE TABLE IF NOT EXISTS contact (id INTEGER PRIMARY KEY, name VARCHAR(100), email VARCHAR(100), subject VARCHAR(100), message VARCHAR(255))"
+	table := `
+          CREATE TABLE IF NOT EXISTS contact (id INTEGER NOT NULL AUTO_INCREMENT, name VARCHAR(100),
+           email VARCHAR(100), subject VARCHAR(100),
+           message VARCHAR(255), PRIMARY KEY (id))`
 	d, err := db.Query(table)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
