@@ -16,7 +16,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", controller.Index)
-	
+
 	http.HandleFunc("/create-table", controller.ContactTable)
 
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))

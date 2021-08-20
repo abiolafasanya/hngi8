@@ -3,7 +3,8 @@ package config
 import (
 	"database/sql"
 	"os"
-        _ "github.com/lib/pq"
+
+	_ "github.com/lib/pq"
 )
 
 func DbConn() (db *sql.DB) {
@@ -25,7 +26,7 @@ func DbConn() (db *sql.DB) {
 	}
 	dbUrl := os.Getenv("DATABASE_URL")
 	if dbUrl == "" {
-		dbUrl = dbUser+":"+dbPass+"@/"+dbName
+		dbUrl = dbUser + ":" + dbPass + "@/" + dbName
 	}
 
 	db, err := sql.Open(dbDriver, dbUrl)

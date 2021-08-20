@@ -10,6 +10,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/hngi8/config"
 	"github.com/hngi8/models"
+	_ "github.com/lib/pq"
 )
 
 var tmpl *template.Template
@@ -31,7 +32,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		t, _ := template.ParseFiles("index.html")
 		t.Execute(w, profile)
-	
+
 	}
 
 	data := models.Contact{
@@ -83,12 +84,12 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func ContactTable(w http.ResponseWriter, r *http.Request) {
 	db := config.DbConn()
 	table := "CREATE TABLE IF NOT EXISTS contact (id INTEGER PRIMARY KEY, name VARCHAR(100), email VARCHAR(100), subject VARCHAR(100), message VARCHAR(255))"
-	d ,err := db.Query(table)
+	d, err := db.Query(table)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		panic(err.Error())
 	}
-	_= d
+	_ = d
 	fmt.Println("Table created successfully")
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
