@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"os"
 
+	_ "github.com/go-sql-driver/mysql"
 	_ "github.com/lib/pq"
 )
 
