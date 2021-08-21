@@ -5,13 +5,18 @@ body {
     font-family: sans-serif;
     }
 
-    .nav-links {
-    display: flex;
-    font-size: 22px;
-    margin: auto;
-    background-color: azure;
-    width: 100%;
-    }
+  nav{
+    padding: 0;
+    margin: 0;
+   }
+   .nav-links {
+   display: flex;
+   font-size: 22px;
+   justify-content: center;
+   align-items: center;
+   background-color: azure;
+   width: 100%;
+  }
     .nav-links a {
     display: block;
     padding: 5px;
