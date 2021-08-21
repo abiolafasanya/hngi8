@@ -96,4 +96,23 @@ text-align: center;
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
+    box-sizing: border-box;
 }
+.img-logo {
+    width: 200px;
+    box-sizing: border-box;
+}
+.social-icon a img {
+    width: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        display: grid;
+        grid-template-columns: repeat(1, 150px);
+        align-items: center;
+    }
+    .img-logo {
+        width: 150px;
+    }
+ }
