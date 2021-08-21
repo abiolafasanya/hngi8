@@ -1,111 +1,99 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(216, 221, 221);
-    font-family: sans-serif;
-    box-sizing: border-box;
-    }
-    
-    nav{
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    }
-    .nav-links {
+    background: rgb(235, 236, 236);
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(30, 31, 31);
+}
+
+.header {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: black;
+}
+.navbar {
     display: flex;
-    font-size: 22px;
     justify-content: center;
     align-items: center;
-    background-color: azure;
-    width: 100%;
-    }
-    .nav-links a {
+}
+.navbar a {
     display: block;
-    padding: 5px;
-    margin: 12px;
+    padding: 3px 10px;
     text-decoration: none;
-    color: rgb(36, 48, 48);
-    }
-    
-    .hero{
-    width: 750px;
-    margin: auto;
-    }
-    .hero .welcome {
-    text-align: center;
-    }
-    
-    .info {
-    width: 750px;
-    margin: auto;
+    color: rgb(30, 31, 31);
+    font-size: 18px;
+}
+
+.card {
+    background: #fff;
+    width: 80%;
+    padding: 10px 15px;
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 0, 3px 10px rgb(30, 31, 31);
+}
+
+.form-group {
+    display: block;
+    box-sizing: border-box;
+}
+.form-control {
+    display: block;
+    margin: 0 15px 15px 0;
+    padding: 10px;
+    font-size: 16px; 
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgb(30, 31, 31);
+}
+.about {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    }
-    .info .group-details{
-    display:  flex;
     align-items: center;
+    margin: 5px auto;
+}
+.about span {
+    margin: 0 30px;
+}
+.footer {
+    background: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+.btn {
+    color: rgb(238, 243, 248);
+    background: rgb(59, 125, 201);
+    padding: 10px 25px;
+    border-radius: 5px;
+    outline: none;
+    border-color: rgb(59, 125, 201);
+    font-size: 14px;
+}
+.btn:hover {
+    background: rgb(18, 53, 94);
+}
+.link a {
+    background: rgb(67, 134, 211);
+    color: rgb(255, 255, 255);
+    padding: 3px 10px;
+    border-radius: 3px;
+    margin: 3px 10px;
+    text-decoration: none;
+}
+.link {
+    display: flex;
+}
+.success {
+background-color: rgb(123, 228, 123);
+padding: 10px 20px;
+border-radius: 3px;
+text-align: center;
+}
+.logo {
+    display: flex;
     justify-content: space-between;
-    }
-    .info-skills {
-    width: 750px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    }
-    
-    .contact{
-    width: 750px;
-    margin: auto;
-    }
-    
-    .contact form label {
-    display: block;
-    }
-    
-    .contact form input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    }
-    
-    .contact form textarea {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    }
-    
-    .btn {
-    color: #fff;
-    background-color: rgb(43, 46, 46);
-    padding: 8px 30px;
-    margin: 5px 0;
-    font-size: 16px;
-    border-radius: 4px;
-    }
-    
-    .success {
-    background-color: rgb(123, 228, 123);
-    padding: 10px 20px;
-    border-radius: 3px;
-    text-align: center;
-    }
-    .error {
-    background-color: rgb(223, 60, 60);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 3px;
-    text-align: center;
-    }
-
-    .logos {
-    margin: 20px 0;
-    width: 750px;
-    margin: auto;
-    display:grid;
-    grid-template-columns: repeat(3, 300px);
-    }
-
-    .logos a img {
-    width: 200px;
-    }    
+    align-items: center;
+    padding: 0 10px;
+}
