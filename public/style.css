@@ -98,7 +98,7 @@ text-align: center;
     padding: 0 10px;
     box-sizing: border-box;
 }
-.img-logo {
+.logo a img {
     width: 200px;
     box-sizing: border-box;
 }
@@ -106,7 +106,7 @@ text-align: center;
     width: 50px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
     .logo {
         display: grid;
         grid-template-columns: repeat(1, 150px);
