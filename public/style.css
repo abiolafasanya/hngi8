@@ -111,8 +111,11 @@ text-align: center;
         display: grid;
         grid-template-columns: repeat(1, 150px);
         align-items: center;
+        margin: 5px 0;
     }
     .img-logo {
         width: 150px;
+        box-sizing: border-box;
+       
     }
  }
