@@ -105,6 +105,9 @@ text-align: center;
 .social-icon a img {
     width: 50px;
 }
+.hidden {
+    display: none;
+}
 
 @media screen and (max-width: 768px) {
     .logo {
