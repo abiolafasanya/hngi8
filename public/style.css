@@ -3,19 +3,12 @@ body {
     padding: 0;
     background-color: rgb(216, 221, 221);
     font-family: sans-serif;
-    box-sizing: border-box;
     }
-    
-    nav{
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    }
+
     .nav-links {
     display: flex;
     font-size: 22px;
-    justify-content: center;
-    align-items: center;
+    margin: auto;
     background-color: azure;
     width: 100%;
     }
