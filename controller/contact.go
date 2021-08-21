@@ -85,14 +85,14 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func ContactTable(w http.ResponseWriter, r *http.Request) {
 	db := config.DbConn()
 	table := `
-		CREATE TABLE contact (
-			id int NOT NULL AUTO_INCREMENT,
+		CREATE TABLE IF NOT EXISTS contact (
+			id serial PRIMARY KEY,
 			name varchar(111) NOT NULL,
-			email varchar(111),
-			subject varchar(111),
-			message varchar(255),
-			PRIMARY KEY (id)
-		)`
+			email varchar(111) NOT NULL,
+			subject varchar(111) NOT NULL,
+			message varchar(255) NOT NULL, 
+                        created_at timestamp with time zone DEFAULT current_timestamp
+                 )`
 
 	d, err := db.Query(table)
 	if err != nil {
