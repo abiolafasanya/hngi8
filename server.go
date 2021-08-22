@@ -14,6 +14,7 @@ func main() {
 	if PORT == "" {
 		PORT = "4000"
 	}
+	server := http.Server{Addr: ":" + PORT}
 
 	http.HandleFunc("/", controller.Index)
 
@@ -22,5 +23,5 @@ func main() {
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
 
 	fmt.Println("Server Started on port" + PORT + "....")
-	http.ListenAndServe(":"+PORT, nil)
+	server.ListenAndServe()
 }
