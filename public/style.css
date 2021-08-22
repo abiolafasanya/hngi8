@@ -86,7 +86,7 @@ a {
 .link a {
     background: rgb(67, 134, 211);
     color: rgb(255, 255, 255);
-    padding: 3px 10px;
+    padding: 10px;
     border-radius: 3px;
     margin: 3px 10px;
     text-decoration: none;
