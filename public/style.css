@@ -52,12 +52,12 @@ body {
 .about {
     display: flex;
     align-items: center;
-    margin: 5px auto;
-    font-size: 18px;
+    padding: 5px auto;
+    
 }
 .about span {
     margin: 0 30px;
-    font-size: 18px;
+
 }
 .footer {
     background: #fff;
@@ -123,13 +123,5 @@ text-align: center;
         box-sizing: border-box;
        
     }
-
-    .navbar a {
-    font-size: 18px;
-    }
-
-    .about {
-     font-size:18px;
-     }
 
  }
