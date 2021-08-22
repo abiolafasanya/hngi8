@@ -33,6 +33,10 @@ body {
     box-shadow: 0, 3px 10px rgb(30, 31, 31);
 }
 
+a {
+    text-decoration: none;
+  }
+
 .form-group {
     display: block;
     box-sizing: border-box;
