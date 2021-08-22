@@ -24,6 +24,9 @@ body {
     font-size: 24px;
     font-weight: bold;
 }
+.navbar a:hover {
+    color: rgb(86, 90, 90);
+}
 
 .card {
     background: #fff;
@@ -108,10 +111,18 @@ text-align: center;
     box-sizing: border-box;
 }
 .social-icon a img {
-    width: 35px;
+    width: 30px;
 }
 .hidden {
     display: none;
+}
+form {
+    display: block;
+    margin: auto;
+    width:80%;
+}
+.center {
+    text-align: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -131,5 +142,13 @@ text-align: center;
     .navbar a {
         font-size: 24px;
         font-weight: bold;
+    }
+    form {
+        display: block;
+        margin: auto;
+        width:100%;
+    }
+    .center {
+        text-align: unset;
     }
  }
