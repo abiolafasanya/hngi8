@@ -52,12 +52,10 @@ body {
 .about {
     display: flex;
     align-items: center;
-    padding: 5px auto;
     
 }
 .about span {
     margin: 0 30px;
-
 }
 .footer {
     background: #fff;
