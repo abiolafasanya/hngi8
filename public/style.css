@@ -123,5 +123,7 @@ text-align: center;
         width: 150px;
         box-sizing: border-box;   
     }
-   
+    .social-icon a img {
+    width: 35px;
+    }
  }
