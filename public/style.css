@@ -21,7 +21,6 @@ body {
     padding: 3px 10px;
     text-decoration: none;
     color: rgb(30, 31, 31);
-    font-size: 18px;
 }
 
 .card {
@@ -32,6 +31,10 @@ body {
     border-radius: 5px;
     box-shadow: 0, 3px 10px rgb(30, 31, 31);
 }
+
+a {
+    text-decoration: none;
+  }
 
 .form-group {
     display: block;
@@ -52,10 +55,10 @@ body {
 .about {
     display: flex;
     align-items: center;
-    margin: 5px auto;
+    
 }
 .about span {
-    margin: 0 30px;
+    padding: 5px;
 }
 .footer {
     background: #fff;
@@ -69,7 +72,7 @@ body {
     border-radius: 5px;
     outline: none;
     border-color: rgb(59, 125, 201);
-    font-size: 14px;
+    font-size: 18px;
 }
 .btn:hover {
     background: rgb(18, 53, 94);
@@ -118,7 +121,9 @@ text-align: center;
     }
     .img-logo {
         width: 150px;
-        box-sizing: border-box;
-       
+        box-sizing: border-box;   
+    }
+    .social-icon a img {
+       width: 35px;
     }
  }
