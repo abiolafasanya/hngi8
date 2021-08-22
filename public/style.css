@@ -21,7 +21,7 @@ body {
     padding: 3px 10px;
     text-decoration: none;
     color: rgb(30, 31, 31);
-    font-size: 18px;
+    font-size: 28px;
 }
 
 .card {
@@ -71,7 +71,7 @@ body {
     border-radius: 5px;
     outline: none;
     border-color: rgb(59, 125, 201);
-    font-size: 14px;
+    font-size: 18px;
 }
 .btn:hover {
     background: rgb(18, 53, 94);
@@ -123,4 +123,13 @@ text-align: center;
         box-sizing: border-box;
        
     }
+
+    .navbar a {
+    font-size: 18px;
+    }
+
+    .about {
+     font-size:18PX;
+     }
+
  }
