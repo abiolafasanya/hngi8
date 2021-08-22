@@ -58,7 +58,7 @@ a {
     
 }
 .about span {
-    padding: 0 30px;
+    padding: 5px;
 }
 .footer {
     background: #fff;
@@ -123,8 +123,5 @@ text-align: center;
         width: 150px;
         box-sizing: border-box;   
     }
-    .about span{
-         margin: auto;
-         padding: auto;
-    }
+   
  }
