@@ -4,6 +4,7 @@ body {
     background: rgb(235, 236, 236);
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(30, 31, 31);
+    height: 100vh;
 }
 
 .header {
@@ -32,6 +33,7 @@ body {
 .card {
     background: #fff;
     width: 80%;
+    height: 100vh;
     padding: 10px 15px;
     margin: 20px auto;
     border-radius: 5px;
