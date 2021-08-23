@@ -1,4 +1,4 @@
- let scroll = new SmoothScroll('.navbar a[href*="#"]', {
+ let scroll = new SmoothScroll('a[href*="#"]', {
     speed: 800
  });
 
