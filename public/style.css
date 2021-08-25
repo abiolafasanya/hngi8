@@ -147,7 +147,7 @@ form {
     height: 14px;
     border-radius: 5px 0 0 5px;
     position:relative;
-    animation: fillBars 2.5s;
+    animation: fillBars 2.5s 1;
 }
 .skill-progress::before{
     content: attr(per);
