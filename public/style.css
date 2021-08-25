@@ -140,7 +140,7 @@ form {
     background: rgb(193, 205, 223);
     height: 14px;
     border-radius: 5px;
-    
+    cursor: pointer;
 }
 .skill-progress {
     background: rgb(59, 125, 201);
