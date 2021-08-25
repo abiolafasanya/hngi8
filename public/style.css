@@ -126,6 +126,61 @@ form {
 .center {
     text-align: center;
 }
+.skill {
+    width: 100%;
+    max-width: 600px;
+}
+.skill-name {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 20px 0;
+    text-transform: uppercase;
+}
+.skill-bar {
+    background: rgb(193, 205, 223);
+    height: 14px;
+    border-radius: 5px;
+    
+}
+.skill-progress {
+    background: rgb(59, 125, 201);
+    height: 14px;
+    border-radius: 5px 0 0 5px;
+    position:relative;
+    animation: fillBars 2.5s;
+}
+.skill-progress::before{
+    content: attr(per);
+    position:absolute;
+    top: -35px;
+    right: 0;
+    transform: translate(50%);
+    background: rgb(47, 97, 155);
+    color: rgb(252, 252, 252);
+    font-size:12px;
+    padding: 4px 6px;
+}
+.skill-progress::after{
+    content: "";
+    position:absolute;
+    top: -19px;
+    right: 0;
+    transform: translate(50%) rotate(45deg);
+    background: rgb(47, 97, 155);
+    color: rgb(252, 252, 252);
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+}
+
+@keyframes fillBars {
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .logo {
