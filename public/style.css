@@ -147,10 +147,10 @@ form {
     height: 14px;
     border-radius: 5px 0 0 5px;
     position:relative;
-    animation: fillBars 2.5s 1;
+    /* animation: fillBars 2.5s 1; */
 }
 .skill-progress::before{
-    content: attr(per);
+    content: attr(data-progress);
     position:absolute;
     top: -35px;
     right: 0;
@@ -171,6 +171,10 @@ form {
     width: 10px;
     height: 10px;
     border-radius: 2px;
+}
+
+.skill-animation {
+    animation: fillBars 2.5s 1;
 }
 
 @keyframes fillBars {
