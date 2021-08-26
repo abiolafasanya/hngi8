@@ -6,7 +6,7 @@
 
  setTimeout(() => {
   msgAlert.classList.add("hidden");
- }, 6000)
+ }, 8000)
 
  let skillSection = document.querySelector('#skills-section')
  let progressBar = document.querySelectorAll('.skill-progress');

@@ -175,6 +175,7 @@ form {
 
 .skill-animation {
     animation: fillBars 2.5s 1;
+    animation-delay: .5s 1;
 }
 
 @keyframes fillBars {

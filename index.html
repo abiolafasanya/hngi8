@@ -107,55 +107,17 @@
             <div class="card" id="skills-section">
                 <!-- skills -->
                 <h2>Skills and Tools</h2>
-                 <div class="skill">
-                    <div class="skill-name">golang</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="70%" style="max-width:70%;"></div>
-                    </div>
-                 </div>
-                 <div class="skill">
-                    <div class="skill-name">php</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="70%" style="max-width:70%;"></div>
-                    </div>
-                 </div>
-                 <div class="skill">
-                    <div class="skill-name">javascript</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="80%" style="max-width:80%;"></div>
-                    </div>
-                 </div>
-                 <div class="skill">
-                    <div class="skill-name">laravel</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="80%" style="max-width:80%;"></div>
-                    </div>
-                 </div>
-                 <div class="skill">
-                    <div class="skill-name">css</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="80%" style="max-width:80%;"></div>
-                    </div>
-                 </div>
-                 <div class="skill">
-                    <div class="skill-name">tailwindcss</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="90%" style="max-width:90%;"></div>
-                    </div>
-                 </div>
-                 <div class="skill">
-                    <div class="skill-name">bootstrap</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="80%" style="max-width:80%;"></div>
-                    </div>
-                 </div>
-                 <div class="skill">
-                    <div class="skill-name">git</div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-progress="90%" style="max-width:90%;"></div>
-                    </div>
-                 </div>
-
+                    {{range .Skill}}
+                        <div class="skill">
+                            <div class="skill-name">{{.Name}}</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="{{.Progress}}%" style="max-width: {{.Progress}}%;"></div>
+                            </div>
+                        </div>
+                        {{.Name}}
+                    {{else}}
+                        Skills are not Available
+                    {{end}}
             </div>
             <div class="card" id="contact">
                 <!-- contact -->

@@ -26,7 +26,20 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Phone:    "2348102307473",
 		Location: "Lagos, Nigeria",
 	}
+	skills := []models.Skill{
+			{Name: "golang", Progress: 60},
+			{Name: "javascript", Progress: 80},
+			{Name: "php", Progress: 80},
+			{Name: "laravel", Progress: 85},
+			{Name: "html", Progress: 90,},
+			{Name: "css", Progress: 90,},
+			{Name: "tailwindcss", Progress: 80},
+			{Name: "bootstrap 4", Progress: 80},
+			{Name: "git", Progress: 80},
+			{Name: "wordpress", Progress: 70},
+		}
 
+	_= skills
 	req := models.Contact{
 		Name:    r.FormValue("name"),
 		Email:   r.FormValue("email"),
@@ -38,7 +51,8 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Success bool
 		Profile models.Profile
 		Message map[string]string
-	}{false, profile, nil}
+		Skill []models.Skill
+	}{false, profile, nil, skills}
 
 	if r.Method == "GET" {
 		t, _ := template.ParseFiles("index.html")
@@ -52,10 +66,12 @@ func Index(w http.ResponseWriter, r *http.Request) {
 		Success bool
 		Profile models.Profile
 		Message models.Info
+		Skill []models.Skill
 	}{
 		Success: true,
 		Profile: profile,
 		Message: info,
+		Skill: skills,
 	}
 
 	
